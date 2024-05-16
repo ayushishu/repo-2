@@ -1,4 +1,4 @@
-name: Receive Dispatch Event
+name: Minimal Dispatch Event
 
 on:
   repository_dispatch:
@@ -8,5 +8,5 @@ jobs:
   print-branch:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the branch name
-        run: echo "Branch name from Repo1: ${{ github.event.client_payload.branch }}"
+      - name: Print a test message
+        run: echo "This is a test message"
