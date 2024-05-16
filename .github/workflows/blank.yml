@@ -1,15 +1,13 @@
-name: My Target Workflow
+name: Target Workflow
 
 on:
-  repository_dispatch:
-    types: [trigger-workflow]
-    
-jobs:
-  build:
-    runs-on: ubuntu-latest
+  workflow_dispatch: # Triggered by workflow dispatch event
 
+jobs:
+  target_job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-        ref: ${{ github.event.client_payload.sha }}
+      - uses: actions/checkout@v3 # Checkout the source code (optional)
+      # Add your target workflow steps here
+      - name: Example target workflow step
+        run: echo "Target workflow triggered!"
