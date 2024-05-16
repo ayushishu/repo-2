@@ -1,0 +1,12 @@
+name: Receive Dispatch Event
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow]
+
+jobs:
+  print-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the branch name
+        run: echo "Branch name from Repo1: ${{ github.event.client_payload.branch }}"
